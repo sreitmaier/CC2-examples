@@ -1,37 +1,43 @@
 var Car = function(position, color, maxSpeed) {
-	this.target;
 	this.position = position;
+	this.target = position;
 	this.color = color;
 	this.speed = maxSpeed;
 	this.driveTo = function (target) {
 		this.target = target;
-	},
+	};
 	this.drive = function () {
-		if (this.position.dist(this.target) > this. speed) {
+		if (this.target && this.position.dist(this.target) > this. speed) {
 			var direction = p5.Vector.sub(this.target, this.position).normalize();
 			this.position.add(direction.mult(this.speed));
 		}
-	},
+	};
 	this.draw = function () {
 		this.drive();
 		fill(this.color);
 		ellipse(this.position.x, this.position.y, 20,20);
-	}
+	};
 }
 
 var vehicles = [];
 var target;
+var idle = 0;
+
+function randomPosition() {
+	return p5.Vector.random2D().mult(300);
+}
 
 function setup() {
 	createCanvas(displayHeight, displayWidth);
-	vehicles[0] = new Car(createVector(displayHeight/2, displayWidth/2), '#ff0000', 3);
-	vehicles[0].driveTo(p5.Vector.random2D().normalize().mult(min([displayHeight, displayWidth])));
-	// vehicles[1] = new Car('#ff00ff', 5);
-	// vehicles[2] = new Car('#ffff00', 10);
+	vehicles[0] = new Car(randomPosition(), '#ff0000', 3);
+	vehicles[1] = new Car(randomPosition(), '#ff00ff', 5);
+	vehicles[2] = new Car(randomPosition(), '#ffff00', 10);
+	vehicles[3] = new Car(randomPosition(), '#00ff00', 10);
 }
 
 function draw() {
 	background(255);
+	rectMode
 	for (var vehicle of vehicles) {
 		// console.log(vehicle);
 		vehicle.draw();
@@ -39,5 +45,7 @@ function draw() {
 }
 
 function mouseClicked() {
-	vehicles[0].driveTo(createVector(mouseX, mouseY))
+	idle++;
+	if (idle >= vehicles.length) idle = 0;
+	vehicles[idle].driveTo(createVector(mouseX, mouseY))
 }
