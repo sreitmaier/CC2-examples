@@ -24,7 +24,7 @@ var target;
 var idle = 0;
 
 function randomPosition() {
-	return p5.Vector.random2D().mult(300).add(createVector(windowWidth/2, windowHeight/2));
+	return createVector(Math.random()*windowWidth, Math.random()*windowHeight)
 }
 
 function setup() {
@@ -37,7 +37,7 @@ function setup() {
 
 function draw() {
 	background(255);
-	rectMode
+	// rectMode
 	for (var vehicle of vehicles) {
 		// console.log(vehicle);
 		vehicle.draw();
