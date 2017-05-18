@@ -14,6 +14,7 @@ var Car = function(position, color, maxSpeed) {
 	};
 	this.draw = function () {
 		this.drive();
+		noStroke();
 		fill(this.color);
 		ellipse(this.position.x, this.position.y, 20,20);
 	};
@@ -27,12 +28,23 @@ function randomPosition() {
 	return createVector(Math.random()*windowWidth, Math.random()*windowHeight)
 }
 
+function randomColorFromHueRange(begin, end) {
+	var hue;
+	if (begin < end) {
+		hue = random(end-begin)+begin;
+	} else {
+		hue = (random(360-begin+end)+begin) % 360;
+	}
+	return color('hsl( ' + Math.floor(hue) + ', 100%, 50%)');
+}
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	vehicles[0] = new Car(randomPosition(), '#ff0000', 3);
-	vehicles[1] = new Car(randomPosition(), '#ff00ff', 5);
-	vehicles[2] = new Car(randomPosition(), '#ffff00', 10);
-	vehicles[3] = new Car(randomPosition(), '#00ff00', 10);
+	for (var i = 0; i < 10; i++) {
+		var c = randomColorFromHueRange(200,360);
+		console.log(c);
+		vehicles[i] = new Car(randomPosition(), c, random(3,10));
+	}
 }
 
 function draw() {
