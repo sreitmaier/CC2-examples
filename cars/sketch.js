@@ -24,11 +24,11 @@ var target;
 var idle = 0;
 
 function randomPosition() {
-	return p5.Vector.random2D().mult(300);
+	return p5.Vector.random2D().mult(300).add(createVector(windowWidth/2, windowHeight/2));
 }
 
 function setup() {
-	createCanvas(displayHeight, displayWidth);
+	createCanvas(windowWidth, windowHeight);
 	vehicles[0] = new Car(randomPosition(), '#ff0000', 3);
 	vehicles[1] = new Car(randomPosition(), '#ff00ff', 5);
 	vehicles[2] = new Car(randomPosition(), '#ffff00', 10);
