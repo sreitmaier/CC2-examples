@@ -21,6 +21,7 @@ var Car = function(position, color, maxSpeed) {
 }
 
 var vehicles = [];
+var vehicleCount = 10;
 var target;
 var idle = 0;
 
@@ -40,10 +41,8 @@ function randomColorFromHueRange(begin, end) {
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	for (var i = 0; i < 10; i++) {
-		var c = randomColorFromHueRange(200,360);
-		console.log(c);
-		vehicles[i] = new Car(randomPosition(), c, random(3,10));
+	for (var i = 0; i < vehicleCount; i++) {
+		vehicles[i] = new Car(randomPosition(), color('hsl( ' + Math.floor(i/vehicleCount*160+200) + ', 100%, 50%)'), random(10)+3);
 	}
 }
 
