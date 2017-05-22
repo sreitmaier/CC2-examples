@@ -7,7 +7,7 @@ var Car = function(position, color, maxSpeed) {
 		this.target = target;
 	};
 	this.drive = function () {
-		if (this.target && this.position.dist(this.target) > this. speed) {
+		if (this.target && this.position.dist(this.target) >= this.speed) {
 			var direction = p5.Vector.sub(this.target, this.position).normalize();
 			this.position.add(direction.mult(this.speed));
 		}
@@ -18,7 +18,7 @@ var Car = function(position, color, maxSpeed) {
 		fill(this.color);
 		ellipse(this.position.x, this.position.y, 20,20);
 	};
-}
+};
 
 var vehicles = [];
 var vehicleCount = 10;
@@ -26,7 +26,7 @@ var target;
 var idle = 0;
 
 function randomPosition() {
-	return createVector(Math.random()*windowWidth, Math.random()*windowHeight)
+	return createVector(Math.random()*windowWidth, Math.random()*windowHeight);
 }
 
 function randomColorFromHueRange(begin, end) {
