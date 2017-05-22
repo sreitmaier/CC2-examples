@@ -60,28 +60,11 @@ function draw() {
 }
 
 function mouseClicked() {
-	var availableVehicles = [];
-	for (var vehicle of vehicles) {
-		if (vehicle.available) {
-			availableVehicles.push(vehicle);
-		}
-	}
-
+	var availableVehicles = vehicles.filter((vehicle) => vehicle.available);
 	if (availableVehicles.length) {
 		var target = createVector(mouseX, mouseY);
-		var closestVehicle;
-		for (var vehicle of availableVehicles) {
-			if (!closestVehicle) {
-				closestVehicle = vehicle;
-			} else {
-				if (closestVehicle.position.dist(target) > vehicle.position.dist(target)) {
-					closestVehicle = vehicle;
-				}
-			}
-		}
-		closestVehicle.driveTo(target);
+		availableVehicles.reduce((closestVehicle, vehicle) => (!closestVehicle || closestVehicle.position.dist(target) > vehicle.position.dist(target)) ? vehicle : closestVehicle).driveTo(target);
 	} else {
-		console.log('No vehicle available');
+		console.log('Nothing available');
 	}
-
 }
