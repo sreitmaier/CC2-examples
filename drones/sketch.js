@@ -9,7 +9,7 @@ function setup() {
 	rectMode(CENTER);
 
 	for (var i = 0; i < vehicleCount; i++) {
-		vehicles[i] = new Drone(createVector(windowWidth/2, windowHeight/2), 2);
+		vehicles[i] = new Drone(createVector(windowWidth/4*(1+2*(i%2)), windowHeight/2), 2);
 	}
 
 	newJob = new Package();

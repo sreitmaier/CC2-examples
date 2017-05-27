@@ -2,10 +2,11 @@ const DRONE_IDLE = 0;
 const DRONE_PICKUP = 1;
 const DRONE_DELIVER = 2;
 
-var Drone = function(position, maxSpeed) {
+var Drone = function(port, maxSpeed) {
 	this.rotorRadius = 10;
-	this.position = position;
-	this.target = position;
+	this.port = port;
+	this.position = port.copy();
+	this.target = port.copy();
 	this.speed = maxSpeed;
 	this.state = 0;
 	this.cargo = null;
@@ -31,6 +32,7 @@ var Drone = function(position, maxSpeed) {
 			break;
 		case DRONE_DELIVER:
 			if (this.position.dist(this.target) < this.speed) {
+				this.target = this.port;
 				this.cargo = null;
 				this.state = DRONE_IDLE;
 			}
@@ -48,7 +50,7 @@ var Drone = function(position, maxSpeed) {
 	};
 
 	this.draw = function () {
-		if (this.state !== DRONE_IDLE) {
+		if (this.state !== DRONE_IDLE || this.position.dist(this.target) >= this.speed) {
 			this.drive();
 		}
 
