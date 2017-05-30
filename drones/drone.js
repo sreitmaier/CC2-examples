@@ -2,20 +2,22 @@ const DRONE_IDLE = 0
 const DRONE_PICKUP = 1
 const DRONE_DELIVER = 2
 
-window.Drone = function (port, maxSpeed) {
-  this.rotorRadius = 10
-  this.port = port
-  this.position = port.copy()
-  this.target = port.copy()
-  this.speed = maxSpeed
-  this.state = 0
-  this.cargo = null
+class Drone {
+  constructor (port, maxSpeed) {
+    this.rotorRadius = 10
+    this.port = port
+    this.position = port.copy()
+    this.target = port.copy()
+    this.speed = maxSpeed
+    this.state = 0
+    this.cargo = null
+  }
 
-  this.deliver = function (cargo) {
+  deliver (cargo) {
     this.cargo = cargo
   }
 
-  this.stateMachine = function () {
+  stateMachine () {
     switch (this.state) {
       default:
       case DRONE_IDLE:
@@ -40,16 +42,16 @@ window.Drone = function (port, maxSpeed) {
     }
   }
 
-  this.availible = function () {
+  availible () {
     return this.state === DRONE_IDLE
   }
 
-  this.drive = function () {
+  drive () {
     var direction = p5.Vector.sub(this.target, this.position).normalize()
     this.position.add(direction.mult(this.speed))
   }
 
-  this.draw = function () {
+  draw () {
     if (this.state !== DRONE_IDLE || this.position.dist(this.target) >= this.speed) {
       this.drive()
     }
