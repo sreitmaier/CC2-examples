@@ -9,7 +9,7 @@ class Drone {
     this.position = port.copy()
     this.target = port.copy()
     this.speed = maxSpeed
-    this.state = 0
+    this.state = DRONE_IDLE
     this.cargo = null
   }
 
@@ -17,7 +17,7 @@ class Drone {
     this.cargo = cargo
   }
 
-  stateMachine () {
+  checkState () {
     switch (this.state) {
       default:
       case DRONE_IDLE:
@@ -83,6 +83,6 @@ class Drone {
     noStroke()
     ellipse(this.position.x, this.position.y, this.rotorRadius / 2, this.rotorRadius / 2)
 
-    this.stateMachine()
+    this.checkState()
   }
 }
