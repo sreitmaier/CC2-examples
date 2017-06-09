@@ -1,5 +1,12 @@
 # Creative Coding 2 – Examples
 
+# Lectures
+
+- [Input: Callbacks and Inheritance](Input-Inheritance.md)
+
+# Tasks
+
+[Final Task](FinaleProject.md)
 
 ## Resources
 

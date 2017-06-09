@@ -16,6 +16,7 @@ class Car {
   }
 }
 
+// Wir erstellen Objekte der Tesla-klasse nun mit der entsprechenden den Anzahl an sitzen.
 class Tesla extends Car {
   constructor (paramModel) {
     let seats
@@ -31,12 +32,14 @@ class Tesla extends Car {
 let oldTesla = new Tesla('Roadster')
 let newTesla = new Tesla('Model S')
 
+// Der Roadster lässt bloß zwei einsteigen
 oldTesla.board('Felix')
 oldTesla.board('Tomas')
 oldTesla.board('Garrit')
-console.log(oldTesla._passengers) // [ 'Felix', 'Garrit' ]
+console.log(oldTesla._passengers) // [ 'Felix', 'Tomas' ]
 
+// Beim Model S können sogar drei einsteigen
 newTesla.board('Felix')
 newTesla.board('Tomas')
 newTesla.board('Garrit')
-console.log(newTesla._passengers) // [ 'Felix', 'Garrit', 'Tomas' ]
+console.log(newTesla._passengers) // [ 'Felix', 'Tomas', 'Garrit' ]

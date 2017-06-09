@@ -1,8 +1,7 @@
+// Manchmal wollen wir nicht jedes Verhalten der Elternklasse übernehmen, also können wir dies überschreiben.
 class Car {
-  constructor (paramModel, paramEngine) {
-    this.model = paramModel
+  constructor (paramEngine) {
     this._engine = paramEngine
-    this._position = 0
   }
 
   drive () {
@@ -11,15 +10,18 @@ class Car {
 }
 
 class Tesla extends Car {
-  constructor (paramModel) {
-    super('Tesla ' + paramModel, 'Electromotor')
+  constructor () {
+    super('Electromotor')
   }
 
+  // Obwohl die Methode `drive` schon in der Elternklasse definiert wurde, könnne wir diese einfach überschreiben
   drive () {
     console.log('weeeeeee')
   }
 }
 
-let myTesla = new Tesla('Roadster')
+let myCar = new Car('Ottomotor')
+let myTesla = new Tesla()
 
+myCar.drive() // frummmm
 myTesla.drive() // weeeeeee

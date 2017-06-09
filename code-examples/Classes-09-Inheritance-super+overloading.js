@@ -1,3 +1,4 @@
+//
 class Car {
   constructor (paramModel, paramEngine) {
     this.model = paramModel
@@ -7,7 +8,11 @@ class Car {
 
   drive () {
     console.log('frummmm')
-    this._position++
+    this.move(1)
+  }
+
+  move (distance) {
+    this._position += distance
   }
 }
 
@@ -18,7 +23,14 @@ class Tesla extends Car {
 
   drive () {
     console.log('weeeeeee')
-    super._position++
+
+    super.move(1) // auch eine Möglichkeit super zu nutzen, ich rufe `move` in `Car` auf
+
+    // Das geht nicht, denn `super` bezieht sich auf Methoden
+    // super._position++
+
+    // Das wollen wir vermeiden, denn dieses Attribut ist privat
+    // this._position++
   }
 }
 
