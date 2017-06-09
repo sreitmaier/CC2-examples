@@ -23,4 +23,4 @@ myTesla.board('Garrit')
 console.log(myTesla._passengers) // [ 'Felix', 'Garrit' ]
 
 myTesla._passengers.push('Garrit')
-console.log(myTesla._passengers) // [ 'Felix', 'Garrit', 'Tomas' ]
+console.log(myTesla._passengers) // [ 'Felix', 'Tomas', 'Garrit' ]
