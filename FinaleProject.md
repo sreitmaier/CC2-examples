@@ -1,10 +1,12 @@
 ## Finale praktische Aufgabe
 
-Überlege dir ein kleines graphisches Spiel oder eine Simulation, welches eine Vielzahl an Objekten darstellt. Es sollte komplex genug sein, damit es sinnvoll ist objekt-orientiert vorzugehen. Reale Objkete sind da meist am einfachsten: [Glühwürmchen](http://ncase.me/fireflies/), [Superheldinnen](https://p5js.org/assets/p5_featured/qianqianye-superwoman/), [Uber-fahrer und Kunden](https://www.nytimes.com/interactive/2017/04/02/technology/uber-drivers-psychological-tricks.html), [Polygone](https://googlechrome.github.io/samples/classes-es6/index.html), ...
+ Wähle ~~Überlege dir~~ ein kleines graphisches Spiel oder eine Simulation, welches eine Vielzahl an Objekten darstellt. Es sollte komplex genug sein, damit es sinnvoll ist objekt-orientiert vorzugehen. Reale Objkete sind da meist am einfachsten: [Glühwürmchen](http://ncase.me/fireflies/), [Superheldinnen](https://p5js.org/assets/p5_featured/qianqianye-superwoman/), [Uber-fahrer und Kunden](https://www.nytimes.com/interactive/2017/04/02/technology/uber-drivers-psychological-tricks.html), [Polygone](https://googlechrome.github.io/samples/classes-es6/index.html), ...
 
 Dabei sollten mehrere Klassen miteinander in Verbindung stehen: Mindestens einmal sollten zwei Klassen eine Assoziation haben (Aggregation / Komposition) und mindestens einmal sollte ein Klasse von einer anderen Klasse erben (Inheritance / Generalisierung).
 
 Es darf das Gruppenprojekt oder auch eine bestehende Simulation verwendet werden, jedoch sollte die Eigenleistung ersichtlich werden, denn nur diese wird bewertet.
+
+**Das Projekt muss nicht implementiert werden**
 
 ## UML Klassendiagramm
 
@@ -20,7 +22,7 @@ Lege außerdem eine kurze Dokumentation in einer `README` Datei an. Hier bietet 
 
 ##  Abgabe
 
-Abgabetermin: 23.06.17
+Abgabetermin: ~~23.06.17~~ 22.06.17 10:00
 
 Abgabeort: Nextcloud oder github (dann Link auf github in die Nextcloud legen)
 
